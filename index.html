@@ -186,10 +186,126 @@ footer {
 
 body {
   padding-bottom: 110px;
-}</style>
+}
+/* LAMZAR HUB LOGIN DESIGN */
+.login-screen {
+  position: fixed;
+  inset: 0;
+  z-index: 20000;
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  padding: 20px;
+  overflow-y: auto;
+  background: linear-gradient(145deg, #080d1c, #171044);
+}
+
+.login-card {
+  width: 100%;
+  max-width: 380px;
+  padding: 30px 22px;
+  border: 1px solid #39316d;
+  border-radius: 22px;
+  background: #11182b;
+  color: white;
+  text-align: center;
+  box-shadow: 0 15px 45px rgba(0,0,0,.4);
+}
+
+.login-card h1 {
+  color: #a78bfa;
+  font-size: 30px;
+  letter-spacing: 3px;
+}
+
+.login-card h2 {
+  font-size: 21px;
+  margin-bottom: 8px;
+}
+
+.login-card p {
+  color: #aab2c5;
+  font-size: 13px;
+}
+
+#login-form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-top: 25px;
+  text-align: left;
+}
+
+#login-form label {
+  color: #d6d9e5;
+  font-size: 13px;
+}
+
+#login-form input {
+  padding: 14px;
+  border: 1px solid #343d59;
+  border-radius: 10px;
+  background: #080f20;
+  color: white;
+  font-size: 16px;
+}
+
+#login-form button {
+  padding: 14px;
+  margin-top: 8px;
+  border: none;
+  border-radius: 10px;
+  background: #7855e8;
+  color: white;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.login-note {
+  margin-top: 22px;
+}
+</style>
 </head>
 
-<body>
+<script>
+document.getElementById("login-form").addEventListener("submit", function(event) {
+  event.preventDefault();
+
+  alert("Student login is coming soon! Secure account registration has not been connected yet.");
+});
+</script><body>
+<div id="login-screen" class="login-screen">
+  <div class="login-card">
+    <h1>ŁΛMZÄR</h1>
+    <h2>Welcome to LAMZAR HUB</h2>
+    <p>One Class. One Community. One Hub.</p>
+
+    <form id="login-form">
+      <label for="student-username">Student Username</label>
+      <input
+        id="student-username"
+        type="text"
+        placeholder="Enter your username"
+        required
+      />
+
+      <label for="student-password">Password</label>
+      <input
+        id="student-password"
+        type="password"
+        placeholder="Enter your password"
+        required
+      />
+
+      <button type="submit">Log In</button>
+    </form>
+
+    <p class="login-note">
+      Access is reserved for authorised class members.
+    </p>
+  </div>
+</div>
+
 <header>
   <div class="logo">LAMZAR <span>HUB</span></div>
   <div class="profile">👤</div>
