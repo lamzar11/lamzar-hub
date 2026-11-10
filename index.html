@@ -1,0 +1,410 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#10101f">
+<title>LAMZAR HUB</title>
+
+<style>
+:root {
+  --bg: #10101f;
+  --panel: #1b1b30;
+  --panel2: #24243d;
+  --purple: #8665ff;
+  --blue: #398bff;
+  --text: #f5f4ff;
+  --muted: #a5a4bb;
+}
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: Arial, sans-serif;
+}
+header {
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid #303049;
+}
+.logo {
+  font-size: 21px;
+  font-weight: 800;
+  letter-spacing: 1px;
+}
+.logo span { color: var(--purple); }
+.profile {
+  background: var(--panel2);
+  padding: 10px 13px;
+  border-radius: 50%;
+}
+main {
+  max-width: 1000px;
+  margin: auto;
+  padding: 22px 16px 100px;
+}
+.welcome {
+  padding: 25px;
+  border-radius: 20px;
+  background: linear-gradient(130deg,#4531a0,#2261a9);
+  margin-bottom: 22px;
+}
+.welcome small { color: #ddd7ff; }
+.welcome h1 {
+  font-size: 27px;
+  margin: 12px 0 8px;
+}
+.welcome p { color: #e4e2ff; }
+.section-title {
+  margin: 25px 0 13px;
+  font-size: 18px;
+}
+.announcement {
+  background: var(--panel);
+  padding: 17px;
+  border-radius: 15px;
+  border-left: 4px solid var(--purple);
+}
+.announcement p {
+  color: var(--muted);
+  line-height: 1.5;
+}
+.grid {
+  display: grid;
+  grid-template-columns: repeat(2,1fr);
+  gap: 12px;
+}
+.feature {
+  background: var(--panel);
+  padding: 17px 13px;
+  border-radius: 15px;
+  border: 1px solid #292940;
+  color: var(--text);
+  text-align: left;
+  cursor: pointer;
+  min-height: 105px;
+}
+.feature:active { transform: scale(.97); }
+.feature .emoji {
+  font-size: 25px;
+  display: block;
+  margin-bottom: 10px;
+}
+.feature strong { font-size: 14px; }
+.feature small {
+  display: block;
+  color: var(--muted);
+  margin-top: 6px;
+}
+.panel {
+  background: var(--panel);
+  padding: 17px;
+  border-radius: 15px;
+  margin-bottom: 12px;
+}
+.panel p {
+  color: var(--muted);
+  line-height: 1.5;
+}
+.schedule-item {
+  display: flex;
+  justify-content: space-between;
+  padding: 13px 0;
+  border-bottom: 1px solid #33334a;
+}
+.schedule-item:last-child { border: 0; }
+.schedule-item span { color: var(--muted); }
+.page { display: none; }
+.page.active { display: block; }
+button.action {
+  border: 0;
+  border-radius: 10px;
+  background: var(--purple);
+  color: white;
+  padding: 12px 16px;
+  font-weight: bold;
+  cursor: pointer;
+}
+input, textarea {
+  width: 100%;
+  padding: 13px;
+  border-radius: 10px;
+  border: 1px solid #41415c;
+  background: var(--bg);
+  color: white;
+  margin: 8px 0;
+}
+.bottom-nav {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: #19192b;
+  border-top: 1px solid #33334a;
+  display: flex;
+  justify-content: space-around;
+  padding: 12px 4px;
+  z-index: 5;
+}
+.bottom-nav button {
+  background: none;
+  color: var(--muted);
+  border: 0;
+  font-size: 12px;
+  cursor: pointer;
+}
+.bottom-nav button.selected { color: #a58fff; }
+footer {
+  color: var(--muted);
+  text-align: center;
+  font-size: 12px;
+  padding: 25px 0;
+}
+@media(min-width:650px) {
+  .grid { grid-template-columns: repeat(4,1fr); }
+}
+</style>
+</head>
+
+<body>
+<header>
+  <div class="logo">LAMZAR <span>HUB</span></div>
+  <div class="profile">👤</div>
+</header>
+
+<main>
+  <section id="home" class="page active">
+    <div class="welcome">
+      <small>YOUR CLASS. YOUR COMMUNITY.</small>
+      <h1>Welcome to LAMZAR HUB 👋</h1>
+      <p>One Class. One Community. One Hub.</p>
+    </div>
+
+    <h2 class="section-title">📢 Latest announcement</h2>
+    <div class="announcement">
+      <strong>Welcome to LAMZAR HUB!</strong>
+      <p>This is our class community space. Check here for class news, learning activities and updates.</p>
+      <small>Demo announcement</small>
+    </div>
+
+    <h2 class="section-title">🚀 Explore the hub</h2>
+    <div class="grid">
+      <button class="feature" onclick="showPage('lounge')">
+        <span class="emoji">💬</span><strong>Class Lounge</strong>
+        <small>Connect with classmates</small>
+      </button>
+      <button class="feature" onclick="showPage('timetable')">
+        <span class="emoji">🕒</span><strong>Timetable</strong>
+        <small>View class schedule</small>
+      </button>
+      <button class="feature" onclick="showPage('matchmaking')">
+        <span class="emoji">🤝</span><strong>Matchmaking</strong>
+        <small>Find study partners</small>
+      </button>
+      <button class="feature" onclick="showPage('polls')">
+        <span class="emoji">📊</span><strong>Class Polls</strong>
+        <small>Share your opinion</small>
+      </button>
+      <button class="feature" onclick="showPage('suggestions')">
+        <span class="emoji">💡</span><strong>Suggestions</strong>
+        <small>Share ideas</small>
+      </button>
+      <button class="feature" onclick="showPage('quiz')">
+        <span class="emoji">🧠</span><strong>Quiz Zone</strong>
+        <small>Test your knowledge</small>
+      </button>
+      <button class="feature" onclick="showPage('resources')">
+        <span class="emoji">📚</span><strong>Resources</strong>
+        <small>Learning materials</small>
+      </button>
+      <button class="feature" onclick="showPage('academy')">
+        <span class="emoji">🎓</span><strong>Skill Academy</strong>
+        <small>Learn new skills</small>
+      </button>
+      <button class="feature" onclick="showPage('leaderboard')">
+        <span class="emoji">🏆</span><strong>Leaderboard</strong>
+        <small>Celebrate learning</small>
+      </button>
+      <button class="feature" onclick="showPage('profile')">
+        <span class="emoji">👤</span><strong>My Profile</strong>
+        <small>Your student space</small>
+      </button>
+    </div>
+
+    <h2 class="section-title">📅 Today's schedule</h2>
+    <div class="panel">
+      <p>Sample timetable — replace with your real class schedule.</p>
+      <div class="schedule-item">
+        <strong>Mathematics</strong><span>8:00 AM</span>
+      </div>
+      <div class="schedule-item">
+        <strong>English</strong><span>9:00 AM</span>
+      </div>
+      <div class="schedule-item">
+        <strong>Physics</strong><span>10:00 AM</span>
+      </div>
+    </div>
+  </section>
+
+  <section id="lounge" class="page">
+    <h2 class="section-title">💬 Class Lounge</h2>
+    <div class="panel">
+      <p>A place for class discussions and learning conversations.</p>
+      <p>Discussion posting will be connected to the class database later.</p>
+    </div>
+  </section>
+
+  <section id="timetable" class="page">
+    <h2 class="section-title">🕒 Class Timetable</h2>
+    <div class="panel">
+      <div class="schedule-item"><strong>Monday</strong><span>Mathematics, English</span></div>
+      <div class="schedule-item"><strong>Tuesday</strong><span>Physics, Chemistry</span></div>
+      <div class="schedule-item"><strong>Wednesday</strong><span>Mathematics, Biology</span></div>
+      <div class="schedule-item"><strong>Thursday</strong><span>English, Chemistry</span></div>
+      <div class="schedule-item"><strong>Friday</strong><span>Mathematics, Physics</span></div>
+    </div>
+  </section>
+
+  <section id="matchmaking" class="page">
+    <h2 class="section-title">🤝 Study Partners</h2>
+    <div class="panel">
+      <p>Find classmates who want to study the same subjects.</p>
+      <p>This feature will use voluntary student profiles and controlled matching.</p>
+    </div>
+  </section>
+
+  <section id="polls" class="page">
+    <h2 class="section-title">📊 Class Polls</h2>
+    <div class="panel">
+      <strong>Which activity should we organise first?</strong>
+      <p>Sample poll — not a real class vote.</p>
+      <button class="action" onclick="vote('Quiz competition')">Quiz competition</button>
+      <button class="action" onclick="vote('Study group')">Study group</button>
+      <p id="vote-result"></p>
+    </div>
+  </section>
+
+  <section id="suggestions" class="page">
+    <h2 class="section-title">💡 Suggestions</h2>
+    <div class="panel">
+      <p>Share an idea to improve our class community.</p>
+      <textarea id="suggestion" placeholder="Write your suggestion..."></textarea>
+      <button class="action" onclick="sendSuggestion()">Submit suggestion</button>
+      <p id="suggestion-result"></p>
+      <small>Demo only: suggestions are not saved or sent.</small>
+    </div>
+  </section>
+
+  <section id="quiz" class="page">
+    <h2 class="section-title">🧠 Quiz Zone</h2>
+    <div class="panel">
+      <strong>What does HTML stand for?</strong>
+      <p>A. HyperText Markup Language</p>
+      <p>B. HighText Machine Language</p>
+      <p>C. Home Tool Markup Language</p>
+      <button class="action" onclick="checkQuiz('A')">A</button>
+      <button class="action" onclick="checkQuiz('B')">B</button>
+      <button class="action" onclick="checkQuiz('C')">C</button>
+      <p id="quiz-result"></p>
+    </div>
+  </section>
+
+  <section id="resources" class="page">
+    <h2 class="section-title">📚 Class Resources</h2>
+    <div class="panel">
+      <p>Class notes, assignments, revision materials and past questions will appear here.</p>
+      <small>No class documents have been uploaded yet.</small>
+    </div>
+  </section>
+
+  <section id="academy" class="page">
+    <h2 class="section-title">🎓 Skill Academy</h2>
+    <div class="panel">
+      <p>Learn useful skills through organised courses.</p>
+      <p>Possible courses: Python, web development, graphic design and more.</p>
+      <small>Course enrolment and payments are not active yet.</small>
+    </div>
+  </section>
+
+  <section id="leaderboard" class="page">
+    <h2 class="section-title">🏆 Leaderboard</h2>
+    <div class="panel">
+      <p>Sample leaderboard</p>
+      <div class="schedule-item"><strong>🥇 Student 1</strong><span>120 points</span></div>
+      <div class="schedule-item"><strong>🥈 Student 2</strong><span>100 points</span></div>
+      <div class="schedule-item"><strong>🥉 Student 3</strong><span>80 points</span></div>
+      <small>Sample names and scores only.</small>
+    </div>
+  </section>
+
+  <section id="profile" class="page">
+    <h2 class="section-title">👤 Student Profile</h2>
+    <div class="panel">
+      <p>Welcome, Student!</p>
+      <p>Your profile will display approved class information once secure accounts are implemented.</p>
+    </div>
+  </section>
+
+  <footer>
+    LAMZAR HUB © 2026<br>
+    One Class. One Community. One Hub.
+  </footer>
+</main>
+
+<nav class="bottom-nav">
+  <button class="selected" onclick="showPage('home',this)">🏠<br>Home</button>
+  <button onclick="showPage('resources',this)">📚<br>Resources</button>
+  <button onclick="showPage('leaderboard',this)">🏆<br>Rankings</button>
+  <button onclick="showPage('profile',this)">👤<br>Profile</button>
+</nav>
+
+<script>
+function showPage(page, button) {
+  document.querySelectorAll('.page').forEach(p => {
+    p.classList.remove('active');
+  });
+
+  document.getElementById(page).classList.add('active');
+
+  document.querySelectorAll('.bottom-nav button').forEach(b => {
+    b.classList.remove('selected');
+  });
+
+  if (button) {
+    button.classList.add('selected');
+  } else {
+    document.querySelector('.bottom-nav button').classList.add('selected');
+  }
+
+  window.scrollTo(0, 0);
+}
+
+function vote(choice) {
+  document.getElementById('vote-result').textContent =
+    'Demo vote selected: ' + choice + '. Votes are not saved.';
+}
+
+function checkQuiz(answer) {
+  document.getElementById('quiz-result').textContent =
+    answer === 'A' ? 'Correct! 🎉' : 'Not quite. Try again!';
+}
+
+function sendSuggestion() {
+  const value = document.getElementById('suggestion').value.trim();
+  const result = document.getElementById('suggestion-result');
+
+  if (!value) {
+    result.textContent = 'Please enter a suggestion first.';
+    return;
+  }
+
+  result.textContent = 'Demo received. It has not been sent or saved.';
+  document.getElementById('suggestion').value = '';
+}
+</script>
+</body>
+</html>
