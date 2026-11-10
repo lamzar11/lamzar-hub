@@ -167,7 +167,26 @@ footer {
 @media(min-width:650px) {
   .grid { grid-template-columns: repeat(4,1fr); }
 }
-</style>
+/* LAMZAR HUB mobile navigation fix */
+.bottom-nav {
+  position: fixed;
+  left: 10px;
+  right: 10px;
+  bottom: 65px;
+  z-index: 9999;
+  padding-bottom: 8px;
+}
+
+.bottom-nav button {
+  flex: 1;
+  min-width: 0;
+  position: relative;
+  z-index: 10000;
+}
+
+body {
+  padding-bottom: 110px;
+}</style>
 </head>
 
 <body>
